@@ -1,3 +1,21 @@
+Group Project Model Outline 
+User  
+-primary key id 
+-name 
+-email
+Restaurant
+-primary key id 
+-name
+-phone number
+-(location-stretch goal)
+Review 
+-rating
+-user (foreign - id attribute) 
+-restaurant (foreign key - id attribute)
+
+
+
+
 Module One Final Project
 ========================
 
