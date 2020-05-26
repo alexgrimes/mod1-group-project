@@ -1,5 +1,6 @@
-Module One Final Project
-========================
+users CREATE reviews  users READ reviews of restaurant by entering restaurant name users UPDATE (their own) prior reviews  users DELETE (their own) reviews   as a user I should be able to create a review for a restaurant as a user I should be able to read reviews of all the restaurants  as a user I should be able to update my restaurant reviews  as a user I should be able to delete my restaurant reviews
+
+# Module One Final Project
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
 
@@ -37,34 +38,33 @@ Do not begin coding until you have your pitch approved by an instructor. Do not 
 
 Your **first goal** should be to decide on your models and determine the relationships between them. You **must have a minimum of three models consisting of at least _one_ many-to-many relationship.** Here are some ideas:
 
-* `Restaurant`, `User`, `Review`: (Yelp domain) A restaurant has many users and an user has many restaurants; reviews belongs to restaurant and to user.
-* `Movie`, `Actor`, `Role`: (IMDb domain) A movie has many actors and an actor has many movies; roles belongs to movie and to actor.
-* `Pizza`, `Topping`, `PizzaTopping`: (Domino's domain) A pizza has many toppings and an topping has many pizzas; pizza_toppings belongs to pizza and to topping.
+- `Restaurant`, `User`, `Review`: (Yelp domain) A restaurant has many users and an user has many restaurants; reviews belongs to restaurant and to user.
+- `Movie`, `Actor`, `Role`: (IMDb domain) A movie has many actors and an actor has many movies; roles belongs to movie and to actor.
+- `Pizza`, `Topping`, `PizzaTopping`: (Domino's domain) A pizza has many toppings and an topping has many pizzas; pizza_toppings belongs to pizza and to topping.
 
 Whiteboard out your ideas and think about what columns you'll want in the corresponding tables, including foreign keys.
 
-* What does your schema look like?
-* What do your relationships look like?
-* Where are foreign keys stored in a many-to-many relationship?
-* etc.
+- What does your schema look like?
+- What do your relationships look like?
+- Where are foreign keys stored in a many-to-many relationship?
+- etc.
 
 Your **second goal** should be to decide on your [user stories](https://en.wikipedia.org/wiki/User_story). You **must have a minimum of four user stories corresponding to the four CRUD actions** to help explain how a user will interact with your app. A user story should follow the general structure of `"As a <role>, I want <goal/desire> so that <benefit>."`.
 
 For example, if we were creating an app to review restaurants on Yelp, we might write:
 
-* As a user, I want to enter a location and be given a random nearby restaurant suggestion. (**Read**)
-* As a user, I want to be able to write a review for a restaurant. (**Create**)
-* As a user, I want to enter a restaurant and be given user reviews of that restaurant. (**Read**)
-* As a user, I should be able to edit my restaurant review. (**Update**)
-* As a user, I want to be able to delete one of my restaurant reviews. (**Delete**)
-
+- As a user, I want to enter a location and be given a random nearby restaurant suggestion. (**Read**)
+- As a user, I want to be able to write a review for a restaurant. (**Create**)
+- As a user, I want to enter a restaurant and be given user reviews of that restaurant. (**Read**)
+- As a user, I should be able to edit my restaurant review. (**Update**)
+- As a user, I want to be able to delete one of my restaurant reviews. (**Delete**)
 
 #### The Pitch
 
 Projects need to be approved prior to launching into them, so take some time to brainstorm project options that will fulfill the requirements above. When you are ready to pitch, be sure to bring the following with you when you sit down with your instructor(s):
 
-* schema
-* user stories
+- schema
+- user stories
 
 As you pitch, think about how you would explain your [Minimum Viable Product (MVP)](https://en.wikipedia.org/wiki/Minimum_viable_product). Which user stories are needed to give you a solid base to build off of? Which user stories can be left to later (stretch goals)? Think [skateboard instead of wheel](https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp).
 
@@ -78,19 +78,19 @@ _**You do not need to have your MVP figured out before your pitch.**_ We will he
 
 Fork and clone this project repository. As you work, be sure to create a flow of:
 
-* creating a branch to work on a new feature,
-* committing and pushing to your branch,
-* and merging it to `master` when finished.
-* Then delete your old branch after successfully merging to `master`.
-* Rinse and repeat.
+- creating a branch to work on a new feature,
+- committing and pushing to your branch,
+- and merging it to `master` when finished.
+- Then delete your old branch after successfully merging to `master`.
+- Rinse and repeat.
 
 Before you start building, take a look at the files you have available in this repo.
 
-* In the main directory, you've got a `Gemfile` that gives you access to `activerecord`, `pry`, `rake`, and `sqlite3`.
-  * Remember to `bundle install`!
-* In the `bin` directory, you've got a `run.rb` file that you can run from the command line with `ruby bin/run.rb.`
-* In `config`, you've got your database set up with Active Record, as well as all of your models from the `lib` folder made available to your database.
-* In the `lib` directory, you'll be building all your models.
+- In the main directory, you've got a `Gemfile` that gives you access to `activerecord`, `pry`, `rake`, and `sqlite3`.
+  - Remember to `bundle install`!
+- In the `bin` directory, you've got a `run.rb` file that you can run from the command line with `ruby bin/run.rb.`
+- In `config`, you've got your database set up with Active Record, as well as all of your models from the `lib` folder made available to your database.
+- In the `lib` directory, you'll be building all your models.
 
 **Note:** There is no `spec` directory. Your goal is to use [Behavior Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development) to confirm that your code is doing what it should. This means instead of running `rspec` or `learn`, you should frequently be opening up the `rake console` and confirming that your methods and associations work.
 
@@ -323,11 +323,11 @@ Take your time to plan out your code, test each method, and make many commits. A
 
 When you are ready, schedule a project review with one of your instructors. The format of the review will roughly look like this:
 
-* 3 minutes - Requirements Review
-* 5 minutes - App Overview
-* 6 minutes - Deep Dive
-* 12 minutes - Pair Programming
-* 4 minutes - Feedback
+- 3 minutes - Requirements Review
+- 5 minutes - App Overview
+- 6 minutes - Deep Dive
+- 12 minutes - Pair Programming
+- 4 minutes - Feedback
 
 Once you pass the review, you will have free reign to take your command line application to new heights!
 
@@ -347,8 +347,8 @@ One potential improvement would be to pull in data from the real world. So let's
 
 You can either get data from a CSV file, an API, or a website by scraping. Use the power of the internet to search for where you can get this data. Some helpful starter resources:
 
-* [Easy Access APIs](https://github.com/learn-co-curriculum/easy-access-apis)
-* [Public APIs](https://github.com/toddmotto/public-apis)
+- [Easy Access APIs](https://github.com/learn-co-curriculum/easy-access-apis)
+- [Public APIs](https://github.com/toddmotto/public-apis)
 
 Now that you've found your data, how could you seed a database with rows from a CSV file or with JSON data from an API?
 
@@ -356,12 +356,12 @@ Now that you've found your data, how could you seed a database with rows from a 
 
 A basic CRUD app is good, but we can do better. Let's tackle other user stories. Don't have any others? Here are some suggestions:
 
-* Format your output (_responses_) to look better.
-* Add MORE CRUD functionality to more models.
-* Allow the user to do multiple searches without having to run the app each time. What if they want to search fifty different restaurants and then exit the app midway through a search?
-* Allow a user to open a webpage for a restaurant they want to visit.
-* More interesting types of queries! Maybe some that aggregate and analyze data so users can dig deeper.
-* Use a `gem` to jazz up the look of our app with [ASCII text](https://github.com/miketierney/artii) or [colors](https://rubygems.org/gems/colorize/versions/0.8.1).
+- Format your output (_responses_) to look better.
+- Add MORE CRUD functionality to more models.
+- Allow the user to do multiple searches without having to run the app each time. What if they want to search fifty different restaurants and then exit the app midway through a search?
+- Allow a user to open a webpage for a restaurant they want to visit.
+- More interesting types of queries! Maybe some that aggregate and analyze data so users can dig deeper.
+- Use a `gem` to jazz up the look of our app with [ASCII text](https://github.com/miketierney/artii) or [colors](https://rubygems.org/gems/colorize/versions/0.8.1).
 
 #### Robustness
 
@@ -377,26 +377,27 @@ Can you think of any other scenarios? How would you gracefully handle such scena
 
 It's time to show off your creation to the world! Things you might want to do are:
 
-* Write a README detailing:
-  * How to install your application.
-  * How to run your application.
-  * How to use your application (commands that can be run).
-  * What your program looks like (screenshots).
-  * etc.
-* Prepare a demo video describing how a user would interact with your working project.
-    * The video should:
-      * Have an overview of your project. (2 minutes max)
-* Prepare a presentation to follow your video. (3 minutes max)
-    * Your presentation should:
-      * Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      * Discuss 3 things you learned in the process of working on this project.
-      * Address, if anything, what you would change or add to what you have today?
-      * Present any code you would like to highlight.
-* Write a blog post about the project and process.
+- Write a README detailing:
+  - How to install your application.
+  - How to run your application.
+  - How to use your application (commands that can be run).
+  - What your program looks like (screenshots).
+  - etc.
+- Prepare a demo video describing how a user would interact with your working project.
+  - The video should:
+    - Have an overview of your project. (2 minutes max)
+- Prepare a presentation to follow your video. (3 minutes max)
+  - Your presentation should:
+    - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
+    - Discuss 3 things you learned in the process of working on this project.
+    - Address, if anything, what you would change or add to what you have today?
+    - Present any code you would like to highlight.
+- Write a blog post about the project and process.
 
 🎊 Good job on making to the end! 🎊
 
 ---
 
 ## Common question
+
 How do I turn off my SQL logger? `ruby # in config/environment.rb add this line: ActiveRecord::Base.logger = nil`
