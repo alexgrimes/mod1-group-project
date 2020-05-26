@@ -1,3 +1,11 @@
+User has a foreign key in review
+Restaurant has a foreign key in review.
+A restaurant can have many reviews 
+A restaurant can have many users through reviews
+A user can have many reviews 
+A user can have many restaurants through reviews
+A review belongs to restaurant A review belongs to a user
+=======
 # Module One Final Project
 =======
 Group Project Model Outline 
@@ -27,6 +35,7 @@ users DELETE (their own) reviews
   as a user I should be able to read reviews of all the restaurants 
   as a user I should be able to update my restaurant reviews 
   as a user I should be able to delete my restaurant reviews
+
 
 
 
