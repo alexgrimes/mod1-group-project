@@ -1,6 +1,41 @@
-users CREATE reviews  users READ reviews of restaurant by entering restaurant name users UPDATE (their own) prior reviews  users DELETE (their own) reviews   as a user I should be able to create a review for a restaurant as a user I should be able to read reviews of all the restaurants  as a user I should be able to update my restaurant reviews  as a user I should be able to delete my restaurant reviews
-
 # Module One Final Project
+=======
+Group Project Model Outline 
+
+User  
+-primary key id 
+-name 
+-email
+
+Restaurant
+-primary key id 
+-name
+-phone number
+-(location-stretch goal)
+
+Review 
+-rating
+-user (foreign - id attribute) 
+-restaurant (foreign key - id attribute)
+
+users CREATE reviews 
+users READ reviews of restaurant by entering restaurant name
+users UPDATE (their own) prior reviews 
+users DELETE (their own) reviews 
+
+  as a user I should be able to create a review for a restaurant
+  as a user I should be able to read reviews of all the restaurants 
+  as a user I should be able to update my restaurant reviews 
+  as a user I should be able to delete my restaurant reviews
+
+
+
+
+
+
+
+Module One Final Project
+========================
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
 
