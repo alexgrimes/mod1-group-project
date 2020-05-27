@@ -3,7 +3,7 @@ Review.destroy_all
 Restaurant.destroy_all
 Customer.destroy_all
 
-Customer.create(name: "Alex", email: "alex@email.com")
+# Customer.create(name: "Alex", email: "alex@email.com")
 
 #### customer instances ####
 michael = Customer.create(name: "Michael", email: "michael.email@email.com")
@@ -17,5 +17,7 @@ burger_palace = Restaurant.create(name: "Burger Palace", phone_number: "01234567
 
 review_one = Review.create(rating: 3, restaurant: chicken_shack, customer: sid)
 review_two = Review.create(rating: 3, restaurant: asian_station, customer: alex)
-review_one = Review.create(rating: 3, restaurant: burger_palace, customer: michael)
+review_three = Review.create(rating: 3, restaurant: burger_palace, customer: michael)
+review_four = Review.create(rating: 4, restaurant: burger_palace, customer: alex)
+review_five = Review.create(rating: 5, restaurant: chicken_shack, customer: michael)
 
