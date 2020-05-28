@@ -56,33 +56,21 @@ class Review < ActiveRecord::Base
     puts :restaurant
   end 
 
-  #READ
+  ##READ(MVP?)
   def self.find_review_by_id(customer_id, restaurant_id)
     puts "Enter your customer ID"
     customer_id = gets.chomp
     puts "Enter the restaurant ID"
     restaurant_id = gets.chomp
-    #enter restaurant id so we can cross reference a name with 
-    #a restaurant
-    binding.pry
-    review = Review.each{ |r| r.customer_id = customer_id && r.restaurant_id = restaurant_id}
-    #.select is for some reason changing the customer and rest
-    #id's for all the instances to the user input above
-    #I also tried .where here but couldn't figure out how to cross
-    #reference with it
-
+    review = Review.where(customer_id: customer_id, restaurant_id: restaurant_id)
     #we need to return
     #the customer and restaurant name. Add columns to join table?
-    
     rating = review.pluck(:rating)
-    p  "Hello customer ##{customer_id}. You rated that restaurant #{rating.length} times with an average rating of #{rating.compact.sum / rating.length} hungry bellies!" 
-    #.pluck removed the rating attribute but gave an array with 
-    # brackets. .shift removes the brackets. My hunch is this 
-    #can be refactored
-    #will eventually want to return the restaurant name as well 
-    # as rating. Something like "Hi {customer_name}. You rated 
-    #{restaurant_name} {rating} stars" 
+    if rating.length >= 1
+      p  "Hello customer ##{customer_id}. You gave that restaurant a rating of #{rating.compact.sum / rating.length} hungry bellies!" 
+    else p "You have yet to review that place."
   end
+end 
 
 #this is what we had when we left off the afternoon of 5/27
   # def self.find_review_by_id(customer_id)

@@ -7,7 +7,7 @@ require_relative '../config/environment'
 # Review.review_with_a_hash_of_attributes
 # Review.connection
 # current_customer = Customers.find_by(name: chosen_name)
-##R Review.find_review_by_id(5, 5)
+ Review.find_review_by_id(5, 4) ##R
 ##U Review.update_review("Alex")
 ##C Review.new_review(5, 3, 5) [mvp?]
 # Review.create_review(rating: 4, restaurant: "Burger Palace")
