@@ -24,7 +24,7 @@ class Review < ActiveRecord::Base
     review
   end
 
- ##CREATE
+ ##CREATE(MVP?)
   def self.new_review(customer_id, restaurant_id, rating)
     review = Review.new
     puts "enter your customer ID"
@@ -33,10 +33,11 @@ class Review < ActiveRecord::Base
     puts "enter the restaurant ID"
     restaurant_id = gets.chomp
     review.restaurant_id = restaurant_id
-    puts "enter your rating, 1-5"
+    puts "How many hungry bellies do you rate? 10!?"
     rating = gets.chomp 
     review.rating = rating
     review.save
+    p "You gave restaurant#{restaurant_id} #{rating} hungry bellies!"
   end
 
  ##CREATE  
@@ -56,12 +57,41 @@ class Review < ActiveRecord::Base
   end 
 
   #READ
-  def self.find_review_by_id(customer_id)
+  def self.find_review_by_id(customer_id, restaurant_id)
     puts "Enter your customer ID"
     customer_id = gets.chomp
-    review = Review.find_by(customer_id: customer_id)
-    puts review
+    puts "Enter the restaurant ID"
+    restaurant_id = gets.chomp
+    #enter restaurant id so we can cross reference a name with 
+    #a restaurant
+    binding.pry
+    review = Review.each{ |r| r.customer_id = customer_id && r.restaurant_id = restaurant_id}
+    #.select is for some reason changing the customer and rest
+    #id's for all the instances to the user input above
+    #I also tried .where here but couldn't figure out how to cross
+    #reference with it
+
+    #we need to return
+    #the customer and restaurant name. Add columns to join table?
+    
+    rating = review.pluck(:rating)
+    p  "Hello customer ##{customer_id}. You rated that restaurant #{rating.length} times with an average rating of #{rating.compact.sum / rating.length} hungry bellies!" 
+    #.pluck removed the rating attribute but gave an array with 
+    # brackets. .shift removes the brackets. My hunch is this 
+    #can be refactored
+    #will eventually want to return the restaurant name as well 
+    # as rating. Something like "Hi {customer_name}. You rated 
+    #{restaurant_name} {rating} stars" 
   end
+
+#this is what we had when we left off the afternoon of 5/27
+  # def self.find_review_by_id(customer_id)
+  #   puts "Enter your customer ID"
+  #   customer_id = gets.chomp
+  #   review = Review.find_by(customer_id: customer_id)
+  #   puts review
+  # end
+
 
   #READ
   def self.find_max_review
