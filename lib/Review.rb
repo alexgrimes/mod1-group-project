@@ -25,7 +25,7 @@ class Review < ActiveRecord::Base
   end
 
  ##CREATE(MVP?)
-  def self.new_review(customer_id, restaurant_id, rating)
+  def self.new_review(customer_id)
     review = Review.new
     puts "enter your customer ID"
     customer_id = gets.chomp
@@ -37,7 +37,7 @@ class Review < ActiveRecord::Base
     rating = gets.chomp 
     review.rating = rating
     review.save
-    p "You gave restaurant#{restaurant_id} #{rating} hungry bellies!"
+    p "You gave restaurant ##{restaurant_id} #{rating} hungry bellies!"
   end
 
  ##CREATE  
@@ -92,25 +92,71 @@ end
   end 
 
 
-  ##UPDATE
-  def self.update_review(name)
-    
+  ##UPDATE (MVP)
+  def self.update_review(customer_id)
+    #binding.pry
+    puts "Enter your customer ID"
+    customer_id = gets.chomp
+    puts "Enter the Restaurant whose review you'd like to amend"
+    restaurant_id = gets.chomp 
+    review = Review.where(customer_id: customer_id, restaurant_id: restaurant_id)
+    puts review.pluck(:created_at, :rating)
+    if review.length >= 2
+    puts "OK. You've been to that restaurant #{review.length} times. Which visit would you like to amend?"
+    visit_date_to_amend = gets.chomp 
+    date_amended = review[visit_date_to_amend.to_i - 1]
+    puts "OK. Upon reflecting, how many hungry bellies would you actually give this place?"
+    new_rating = gets.chomp
+    date_amended.update(rating: new_rating)
+    else
+    puts "Great! Upon reflecting, how many hungry bellies would you actually give this place?"
+    new_rating = gets.chomp 
+    review.update(rating: new_rating)
+    end 
+    #binding.pry
+    puts "Thank you! You gave restaurant ##{restaurant_id} #{new_rating} hungry bellies!"
+    puts review.pluck(:created_at, :rating)
+    #Customer.all.map {|c| c.name }
     #find all reviews for a customer_id
-    customer = Customer.find_by(name: name)
-    customer.reviews.each do |r| puts
+    # customer = Customer.find_by(name: name)
+    # customer.reviews.each do |r| puts
       #reviews_id 
       #restaurant name
       #current rating
     #iterate and list reviews belonging to that customer_id
 
     #ask user to type in review_id of what they want to update
-    puts "enter the review ID"
-    review_id = gets.chomp
-    review = Review.find(review_id)
-    #enter the new rating
-    review.update(rating: 6)
-    review.save
+    # puts "enter the review ID"
+    # review_id = gets.chomp
+    # review = Review.find(review_id)
+    # #enter the new rating
+    # review.update(rating: 6)
+    # review.save
+  end 
+
+  def self.delete_review(customer_id)
+    puts "Enter your customer ID"
+    customer_id = gets.chomp
+    puts "Enter the Restaurant whose review you'd like to delete"
+    restaurant_id = gets.chomp 
+    review = Review.where(customer_id: customer_id, restaurant_id: restaurant_id)
+    puts review.pluck(:created_at, :rating)
+    if review.length == 0
+      puts "You have no reviews for that restaurant. Would you like to create one? (go back to main menu)"
+    else 
+    puts "What review would you like to delete?"
+    review_to_delete = gets.chomp
+    deleted_review = review[review_to_delete.to_i - 1].delete
+    #binding.pry
+    # review.save 
+    puts "Thanks! You deleted #{deleted_review.created_at}!"
     end 
   end 
 
 end 
+
+# visit_date_to_amend = gets.chomp 
+#     date_amended = review[visit_date_to_amend.to_i - 1]
+#     puts "OK. Upon reflecting, how many hungry bellies would you actually give this place?"
+#     new_rating = gets.chomp
+#     date_amended.update(rating: new_rating)
