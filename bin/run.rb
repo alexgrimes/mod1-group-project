@@ -52,7 +52,7 @@ if current_user
     case user_choice
     when "1"
       clear_screen!
-      puts current_user 
+      # puts current_user 
       CliMethods.find_review_by_user_id(current_user)
     when "2"
       clear_screen!
@@ -62,6 +62,7 @@ if current_user
         puts "How many hungry bellies does it deserve?"
         new_review = gets.chomp
         review_id.update(rating: new_review)
+        clear_screen!
       puts "Great! Your review has been updated!"
       end 
     when "3"
@@ -69,6 +70,7 @@ if current_user
       
       review = CliMethods.update_review(current_user)
       review.delete
+      clear_screen!
       puts "Your review has been deleted!"
 
     when "4"
@@ -106,22 +108,3 @@ if current_user
 else
   puts "Sorry! Couldn't log you in!"
 end
-
-
-## means these are the CRUD methods that were working up to 
-## MVP status (with what kind of method behind)
-
-# Review.review_with_a_hash_of_attributes
-# Review.connection
-# current_customer = Customers.find_by(name: chosen_name)
-# Review.find_review_by_id(3)
- ###Review.update_review(7) 
-#Review.new_review(5)
-# Review.create_review(rating: 4, restaurant: "Burger Palace")
-# Review.find_max_review
-# Review.ratings_sum
-# Review.find_review_by_restaurant("Burger Palace")
-#Review.delete_review(5)
-
-binding.pry
-puts "hello world"
