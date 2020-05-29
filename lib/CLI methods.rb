@@ -1,21 +1,13 @@
 class CliMethods 
 
-#   def self.find_review_by_id(current_user.id)
-    
-#     puts "Enter the restaurant ID"
-#     restaurant_id = gets.chomp
-#     review = Review.where(customer_id: current_user.id, restaurant_id: restaurant_id)
-#     #we need to return
-#     #the customer and restaurant name. Add columns to join table?
-#     #binding.pry
-#     rating = review.pluck(:rating)
-#     if rating.length >= 1
-#       p  "Hello customer ##{customer_id}. You gave that restaurant a rating of #{rating.compact.sum / rating.length} hungry bellies!" 
-#     else p "You have yet to review that place."
-#     end
-#   end 
 
-# end 
+  def self.select_restaurant_from_list
+    puts "Please type the id of the restaurant:"
+    puts
+    Restaurant.all.each do |restaurant| 
+      puts "#{restaurant.id}. #{restaurant.name} "
+    end
+  end
 
 
   def self.find_review_by_user_id(current_user)
@@ -23,4 +15,23 @@ class CliMethods
     p "Hello #{current_user.name}! These are the ratings for the restaurants you've reviewed!"
     puts  "#{review_info} hungry bellies!" 
   end 
+
+
+ 
+
+  ##UPDATE (MVP)
+  def self.update_review(user)
+    #binding.pry
+    puts "Here are your reviews:"
+    user.reviews.each do |review| puts "#{review.id}: #{review.rating}" end
+      puts "Enter the Review ID you'd like to amend"
+    review_id = gets.chomp
+    Review.find(review_id)
+  end 
+
+    
+
+
+    
+  
 end 
