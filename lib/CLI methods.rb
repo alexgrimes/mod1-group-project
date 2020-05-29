@@ -22,7 +22,9 @@ class CliMethods
     #binding.pry
     puts "Here are your reviews:"
     puts 
-    user.reviews.map do |review| puts "ID: #{review.id}       #{review.restaurant.name}:   #{review.rating} hungry bellies" end
+    user.reviews.map do |review| 
+      puts "ID: #{review.id}       #{review.restaurant.name}:   #{review.rating} hungry bellies" 
+    end
       puts 
       puts "Enter the Review ID you'd like to amend"
       puts 
