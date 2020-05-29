@@ -56,21 +56,24 @@ class Review < ActiveRecord::Base
     puts :restaurant
   end 
 
+
+
   ##READ(MVP?)
-  def self.find_review_by_id(customer_id, restaurant_id)
-    puts "Enter your customer ID"
-    customer_id = gets.chomp
-    puts "Enter the restaurant ID"
-    restaurant_id = gets.chomp
-    review = Review.where(customer_id: customer_id, restaurant_id: restaurant_id)
-    #we need to return
-    #the customer and restaurant name. Add columns to join table?
-    rating = review.pluck(:rating)
-    if rating.length >= 1
-      p  "Hello customer ##{customer_id}. You gave that restaurant a rating of #{rating.compact.sum / rating.length} hungry bellies!" 
-    else p "You have yet to review that place."
-  end
-end 
+#   def self.find_review_by_id(customer_id)
+#     puts "Enter your customer ID"
+#     customer_id = gets.chomp
+#     binding.pry
+#     puts "Enter the restaurant ID"
+#     restaurant_id = gets.chomp
+#     review = Review.where(customer_id: customer_id, restaurant_id: restaurant_id)
+#     #we need to return
+#     #the customer and restaurant name. Add columns to join table?
+#     rating = review.pluck(:rating)
+#     if rating.length >= 1
+#       p  "Hello customer ##{customer_id}. You gave that restaurant a rating of #{rating.compact.sum / rating.length} hungry bellies!" 
+#     else p "You have yet to review that place."
+#   end
+# end 
 
 #this is what we had when we left off the afternoon of 5/27
   # def self.find_review_by_id(customer_id)

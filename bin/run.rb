@@ -27,16 +27,16 @@ puts
 puts
 puts "Welcome to ReviewFinder! We're happy to see you again."
 puts "Please enter your email below to `sign in`"
-#puts Customers.all.map { |c| c.email }
+puts Customer.all.map { |c| c.email }
 puts
 puts 
 print "email: "
 chosen_email = gets.chomp
-#current_user = Customers.find_by(email: chosen_email)
+current_user = Customer.find_by(email: chosen_email)
 
 clear_screen!
-#if current_user
-  #puts "Welcome, #{current_user.name}!" 
+if current_user
+  puts "Welcome, #{current_user.name}!" 
 
   puts "Please pick what you would like to do!"
   puts
@@ -52,15 +52,11 @@ clear_screen!
     case user_choice
     when "1"
       clear_screen!
-    
-      puts "Here's what you've reviewed so far:"
-      puts
-      puts "press (6) to return to main menu"
-      puts
-     # puts current_user.reviews
+      puts current_user 
+      CliMethods.find_review_by_user_id(current_user)
     when "2"
       clear_screen!
-    
+      
       puts "Editing my Reviews now!"
       puts
       puts "press (6) to return to main menu"
@@ -95,9 +91,9 @@ clear_screen!
       user_choice = gets.chomp
     end
   
-#else
-  #puts "Sorry! Couldn't log you in!"
-#end
+else
+  puts "Sorry! Couldn't log you in!"
+end
 
 
 ## means these are the CRUD methods that were working up to 
@@ -106,14 +102,14 @@ clear_screen!
 # Review.review_with_a_hash_of_attributes
 # Review.connection
 # current_customer = Customers.find_by(name: chosen_name)
-##Review.find_review_by_id(5, 5)
+# Review.find_review_by_id(3)
  ###Review.update_review(7) 
 #Review.new_review(5)
 # Review.create_review(rating: 4, restaurant: "Burger Palace")
 # Review.find_max_review
 # Review.ratings_sum
 # Review.find_review_by_restaurant("Burger Palace")
-Review.delete_review(5)
+#Review.delete_review(5)
 
 binding.pry
 puts "hello world"
